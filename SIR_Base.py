@@ -25,11 +25,11 @@ def sir_model(s, i, r, b, g):
     """
     for x in range(len(s) - 1):
         # dSdt = -beta * s(t) * i(t)
-        s[x + 1] = s[x] - b * s[x] * i[x]
+        s[x + 1] = s[x] - (b * s[x] * i[x])
         # didt = beta * s(t) * i(t) - gamma * i(t)
-        i[x + 1] = i[x] + b * s[x] * i[x] - g * i[x]
+        i[x + 1] = i[x] + (b * s[x] * i[x] - g * i[x])
         # drdt = gamma * i(t)
-        r[x + 1] = r[x] + g * i[x]
+        r[x + 1] = r[x] + (g * i[x])
 
 
 # Calculate initial percentage (compatible with numpy) and set to first variable
